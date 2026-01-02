@@ -1,0 +1,41 @@
+# Template file for 'nebula-gtk'
+pkgname=nebula-gtk
+version=1.3.7
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config rustup"
+makedepends="gtk4-devel libadwaita-devel glib-devel pango-devel"
+depends="dbus polkit"
+short_desc="Graphical manager for runit services"
+maintainer="Sofiya <sofiya@v.org>"
+license="MIT"
+homepage="https://github.com/Letdown2491/nebula-gtk"
+changelog="https://raw.githubusercontent.com/Letdown2491/nebula-gtk/refs/heads/main/CHANGELOG.md"
+distfiles="https://github.com/Letdown2491/nebula-gtk/archive/refs/tags/v${version}.tar.gz"
+checksum=f15c55a486f23d16146e701f43d5406927d0ec559fd3efe2adc61c0f42576b14
+
+do_build() {
+    cargo build --release --bin nebula-gtk
+}
+
+do_install() {
+    # Icons
+    for size in 128x128 256x256 512x512; do
+        vinstall "assets/icons/hicolor/${size}/apps/nebula.png" 644 "usr/share/icons/hicolor/${size}/apps"
+    done
+
+    # Desktop file
+    vinstall assets/applications/tech.geektoshi.Nebula.desktop 644 usr/share/applications
+
+	# Install nebula-gtk
+    vmkdir usr/libexec
+	vinstall target/release/nebula-gtk 755 /usr/libexec
+}
+
+post_install() {
+    # Readme
+    vdoc README.md
+
+    # License
+    vlicense LICENSE
+}

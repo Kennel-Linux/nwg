@@ -28,5 +28,15 @@ You should now be able search through all nwg related packages provided by this 
 sudo xbps-query -Rs nwg
 ```
 
-
 <img width="933" height="697" alt="Снимок экрана_20260101_231209" src="https://github.com/user-attachments/assets/d3aa7a77-a883-4ff6-966e-a59998428a46" />
+
+# Available packages
+| package | source | automatic update |
+|:--------|:-------|:-----------------|
+| nwg                                 | https://github.com/nwg-piotr/           | :heavy_check_mark: |
+
+
+### TODO
+
+- [x] Build and package Xlibre once a new version is released via GitHub Actions
+- 

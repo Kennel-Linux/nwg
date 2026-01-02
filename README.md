@@ -1,5 +1,9 @@
 # Void Linux Software Repository
 
+![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
+
 > [!NOTE]
 >>  _How to use_
 >>> _type in the terminal_

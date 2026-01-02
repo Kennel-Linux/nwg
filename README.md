@@ -33,8 +33,27 @@ sudo xbps-query -Rs nwg
 # Available packages
 | package | source | automatic update |
 |:--------|:-------|:-----------------|
-| nwg                                 | https://github.com/nwg-piotr/           | :heavy_check_mark: |
-
+| nwg-bar                    | https://github.com/nwg-piotr/nwg-bar                            | :heavy_check_mark: |
+| nwg-clipman                | https://github.com/nwg-piotr/nwg-clipman                        | :heavy_check_mark: |
+| nwg-displays               | https://github.com/nwg-piotr/nwg-displays                       | :heavy_check_mark: |
+| nwg-dock                   | https://github.com/nwg-piotr/nwg-dock                           | :heavy_check_mark: |
+| nwg-dock-hyprland          | https://github.com/nwg-piotr/nwg-dock-hyprland                  | :heavy_check_mark: |
+| nwg-drawer                 | https://github.com/nwg-piotr/nwg-drawer                         | :heavy_check_mark: |
+| nwg-hello                  | https://github.com/nwg-piotr/nwg-hello                          | :heavy_check_mark: |
+| nwg-icon-picker            | https://github.com/nwg-piotr/nwg-icon-picker                    | :heavy_check_mark: |
+| nwg-launchers              | https://github.com/nwg-piotr/nwg-launchers                      | :heavy_check_mark: |
+| nwg-look                   | https://github.com/nwg-piotr/nwg-look                           | :heavy_check_mark: |
+| nwg-menu                   | https://github.com/nwg-piotr/nwg-menu                           | :heavy_check_mark: |
+| nwg-panel                  | https://github.com/nwg-piotr/nwg-panel                          | :heavy_check_mark: |
+| nwg-readme-browser         | https://github.com/nwg-piotr/nwg-readme-browser                 | :heavy_check_mark: |
+| nwg-shell                  | https://github.com/nwg-piotr/nwg-shell                          | :heavy_check_mark: |
+| nwg-shell-config           | https://github.com/nwg-piotr/nwg-shell-config                   | :heavy_check_mark: |
+| nwg-shell-wallpapers       | https://github.com/nwg-piotr/nwg-shell-wallpapers               | :heavy_check_mark: |
+| python3-dasbus             | https://github.com/dasbus-project/dasbus                        | :heavy_check_mark: |
+| python3-geographiclib      | https://github.com/geographiclib/geographiclib-python           | :x: |               
+| python3-geopy              | https://github.com/geopy/geopy                                  | :heavy_check_mark: |
+| runkit                     | https://github.com/Letdown2491/runkit                           | :heavy_check_mark: |
+| nebula-gtk                 | https://github.com/Letdown2491/nebula-gtk                       | :heavy_check_mark: |
 
 ### TODO
 

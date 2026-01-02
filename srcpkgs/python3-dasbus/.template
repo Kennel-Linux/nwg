@@ -1,0 +1,16 @@
+# Template file for 'python3-dasbus'
+pkgname=python3-dasbus
+version=${VERSION}
+revision=1
+build_style=python3-pep517
+hostmakedepends="python3-setuptools python3-wheel"
+makedepends="cairo-devel python3-gobject-devel python3-cairo-devel python3-dbus-devel"
+depends="python3-gobject"
+checkdepends="python3-pytest"
+short_desc="DBus library in Python 3"
+maintainer="zenobit <zenobit@disroot.org>"
+license="LGPL-2.1-only"
+homepage="https://github.com/dasbus-project/dasbus"
+#changelog=""
+distfiles="https://github.com/dasbus-project/dasbus/archive/refs/tags/v${version}.tar.gz"
+checksum=${SHA256}

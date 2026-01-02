@@ -1,6 +1,6 @@
 # Template file for 'python3-geographiclib'
 pkgname=python3-geographiclib
-version=2.1
+version=${VERSION}
 revision=1
 build_style=python3-pep517
 hostmakedepends="python3-setuptools python3-wheel"
@@ -11,7 +11,7 @@ license="MIT"
 homepage="https://geographiclib.sourceforge.io/"
 #changelog="https://github.com/geographiclib/geographiclib"
 distfiles="$SOURCEFORGE_SITE/geographiclib/distrib-Python/geographiclib-${version}.tar.gz"
-checksum=6a6545e6262d0ed3522e13c515713718797e37ed8c672c31ad7b249f372ef108
+checksum=${SHA256}
 
 post_install() {
 	vlicense LICENSE

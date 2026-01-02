@@ -20,21 +20,26 @@ jobs:
         token: ${{ secrets.PULL_PUSH }}
     - run: sudo apt update -y && sudo apt install -y jq git curl
     - run: bash ./srcpkgs/nwg-bar/update.sh
-    # - run: bash ./srcpkgs/nwg-clipman/update.sh
-    # - run: bash ./srcpkgs/nwg-displays/update.sh
-    # - run: bash ./srcpkgs/nwg-dock/update.sh
-    # - run: bash ./srcpkgs/nwg-dock-hyprland/update.sh
-    # - run: bash ./srcpkgs/nwg-drawer/update.sh
-    # - run: bash ./srcpkgs/nwg-hello/update.sh
-    # - run: bash ./srcpkgs/nwg-icon-picker/update.sh
-    # - run: bash ./srcpkgs/nwg-launchers/update.sh
-    # - run: bash ./srcpkgs/nwg-look/update.sh
-    # - run: bash ./srcpkgs/nwg-menu/update.sh
-    # - run: bash ./srcpkgs/nwg-panel/update.sh
-    # - run: bash ./srcpkgs/nwg-readme-browser/update.sh
-    # - run: bash ./srcpkgs/nwg-shell/update.sh
-    # - run: bash ./srcpkgs/nwg-shell-config/update.sh
-    # - run: bash ./srcpkgs/nwg-shell-wallpapers/update.sh
+    - run: bash ./srcpkgs/nwg-clipman/update.sh
+    - run: bash ./srcpkgs/nwg-displays/update.sh
+    - run: bash ./srcpkgs/nwg-dock/update.sh
+    - run: bash ./srcpkgs/nwg-dock-hyprland/update.sh
+    - run: bash ./srcpkgs/nwg-drawer/update.sh
+    - run: bash ./srcpkgs/nwg-hello/update.sh
+    - run: bash ./srcpkgs/nwg-icon-picker/update.sh
+    - run: bash ./srcpkgs/nwg-launchers/update.sh
+    - run: bash ./srcpkgs/nwg-look/update.sh
+    - run: bash ./srcpkgs/nwg-menu/update.sh
+    - run: bash ./srcpkgs/nwg-panel/update.sh
+    - run: bash ./srcpkgs/nwg-readme-browser/update.sh
+    - run: bash ./srcpkgs/nwg-shell/update.sh
+    - run: bash ./srcpkgs/nwg-shell-config/update.sh
+    - run: bash ./srcpkgs/nwg-shell-wallpapers/update.sh
+    - run: bash ./srcpkgs/nebula-gtk/update.sh
+    - run: bash ./srcpkgs/runkit/update.sh
+    - run: bash ./srcpkgs/python3-dasbus/update.sh
+    - run: bash ./srcpkgs/python3-geopy/update.sh
+    # - run: bash ./srcpkgs/python3-geographiclib/update.sh
     - name: Check for updates
       id: check-updates
       run: |

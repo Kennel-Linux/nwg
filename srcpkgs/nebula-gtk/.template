@@ -1,0 +1,45 @@
+# Template file for 'nebula-gtk'
+pkgname=nebula-gtk
+version=${VERSION}
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config rustup desktop-file-utils appstream-glib"
+makedepends="gtk4-devel libadwaita-devel glib-devel pango-devel"
+depends="dbus polkit"
+short_desc="Managing Void Linux packages, using the XBPS tooling"
+maintainer="Sofiya <sofiya@v.org>"
+license="MIT"
+homepage="https://github.com/Letdown2491/nebula-gtk"
+changelog="https://raw.githubusercontent.com/Letdown2491/nebula-gtk/refs/heads/main/CHANGELOG.md"
+distfiles="https://github.com/Letdown2491/nebula-gtk/archive/refs/tags/v${version}.tar.gz"
+checksum=${SHA256}
+
+do_build() {
+    cargo build --release --bin nebula-gtk
+}
+
+do_install() {
+    # Icons
+    for size in 128x128 256x256 512x512; do
+        vinstall "assets/icons/hicolor/${size}/apps/nebula.png" 644 "usr/share/icons/hicolor/${size}/apps"
+    done
+
+    # Desktop file
+    vinstall assets/applications/tech.geektoshi.Nebula.desktop 644 usr/share/applications
+
+    # Data
+    vinstall data/category_overrides.toml 644 usr/share/nebula
+	vinstall data/generated/category_suggestions.json 644 usr/share/nebula
+
+	# Install nebula-gtk
+    vmkdir usr/libexec
+	vinstall target/release/nebula-gtk 755 /usr/libexec
+}
+
+post_install() {
+    # Readme
+    vdoc README.md
+
+    # License
+    vlicense LICENSE
+}

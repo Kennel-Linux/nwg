@@ -6,11 +6,6 @@ build_style=cargo
 hostmakedepends="pkg-config rustup"
 makedepends="gtk4-devel libadwaita-devel glib-devel pango-devel"
 depends="dbus polkit"
-optdepends="
-   services.json should be installed manually
-   mkdir -p $HOME/.config/runkit
-   cp /usr/share/runkit/services.json $HOME/.config/runkit/services.json
-"
 short_desc="Graphical manager for runit services"
 maintainer="Sofiya <sofiya@v.org>"
 license="MIT"

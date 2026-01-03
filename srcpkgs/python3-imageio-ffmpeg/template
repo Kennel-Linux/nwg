@@ -2,7 +2,6 @@
 pkgname=python3-imageio-ffmpeg
 version=0.6.0
 revision=1
-# build_style=python3-module
 build_style=python3-pep517
 hostmakedepends="python-setuptools"
 makedepends="python3-build python3-installer python3-wheel python3-setuptools"

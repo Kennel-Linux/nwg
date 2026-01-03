@@ -13,8 +13,3 @@ license="MIT"
 homepage="https://github.com/rr-/screeninfo"
 distfiles="https://github.com/rr-/screeninfo/archive/refs/tags/${version}.tar.gz"
 checksum=f6b3eeb22196a253611df1d3ee8fff549f2654730823ef4d2533018c27f13b09
-# wrksrc="${pkgname}-${version}"
-
-# do_build() {
-#    python3 -m build --no-isolation --wheel
-# }

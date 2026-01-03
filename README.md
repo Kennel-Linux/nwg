@@ -53,7 +53,7 @@ sudo xbps-query -Rs nwg
 | python3-geographiclib      | https://github.com/geographiclib/geographiclib-python           | :x: |
 | python3-geopy              | https://github.com/geopy/geopy                                  | :heavy_check_mark: |
 | python3-imageio-ffmpeg     | https://github.com/imageio/imageio-ffmpeg                       | :heavy_check_mark: |
-| python3-screeninf0         | https://github.com/rr-/screeninfo                               | :heavy_check_mark: |
+| python3-screeninf0         | https://github.com/rr-/screeninfo                               | :x: |
 | runkit                     | https://github.com/Letdown2491/runkit                           | :heavy_check_mark: |
 | nebula-gtk                 | https://github.com/Letdown2491/nebula-gtk                       | :heavy_check_mark: |
 | waypaper                   | https://github.com/anufrievroman/waypaper                       | :heavy_check_mark: |

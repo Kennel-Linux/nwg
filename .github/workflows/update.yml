@@ -39,7 +39,10 @@ jobs:
     - run: bash ./srcpkgs/runkit/update.sh
     - run: bash ./srcpkgs/python3-dasbus/update.sh
     - run: bash ./srcpkgs/python3-geopy/update.sh
+    - run: bash ./srcpkgs/python3-imageio-ffmpeg/update.sh
+    - run: bash ./srcpkgs/waypaper/update.sh
     # - run: bash ./srcpkgs/python3-geographiclib/update.sh
+    # - run: bash ./srcpkgs/python3-screeninfo/update.sh
     - name: Check for updates
       id: check-updates
       run: |

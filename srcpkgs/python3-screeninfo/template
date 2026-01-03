@@ -1,0 +1,20 @@
+# Template file for 'python3-screeninfo'
+pkgname=python3-screeninfo
+version=0.8.1
+revision=1
+build_style=python3-pep517
+hostmakedepends="python3-setuptools"
+makedepends="python3-build python3-poetry-core python3-installer"
+depends="python3"
+optdepends="libXinerama libXrandr libdrm"
+short_desc="Python library to fetch location and size of physical screens"
+maintainer="Sofiya <sofiya@v.org>"
+license="MIT"
+homepage="https://github.com/rr-/screeninfo"
+distfiles="https://github.com/rr-/screeninfo/archive/refs/tags/${version}.tar.gz"
+checksum=f6b3eeb22196a253611df1d3ee8fff549f2654730823ef4d2533018c27f13b09
+# wrksrc="${pkgname}-${version}"
+
+# do_build() {
+#    python3 -m build --no-isolation --wheel
+# }

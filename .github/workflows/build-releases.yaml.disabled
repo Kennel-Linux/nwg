@@ -3,7 +3,7 @@ name: Build-releases
 on:
   push:
     branches:
-        - main
+        - master
     paths:
         - 'srcpkgs/**'
   workflow_dispatch:
@@ -26,9 +26,9 @@ jobs:
       matrix:
         config: &build_matrix
           - { arch: x86_64,       host: x86_64,      libc: glibc, platform: linux/amd64, test: 1 }
-          # - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
-          # - { arch: x86_64-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 1 }
-          # - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
+          - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
+          - { arch: x86_64-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 1 }
+          - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
 
     permissions:
       contents: write
@@ -275,7 +275,7 @@ jobs:
 
             xbps-rindex -a *.xbps || true
             xbps-rindex -r "$PWD"
-            xbps-rindex -s --signedby "Encoded14 <linusken@posteo.com>" --privkey private.pem "$PWD"
+            xbps-rindex -s --signedby "Sofiya <sofiya@v.com>" --privkey private.pem "$PWD"
             xbps-rindex -S --privkey private.pem "$PWD"/*.xbps
             xbps-rindex -c "$PWD"
 

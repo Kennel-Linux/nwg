@@ -1,4 +1,4 @@
-name: Build and Release nwg v2
+name: 🏗️ Build Void Linux Packages
 
 env:
   TAG: workflow-${{ github.run_number }}
@@ -28,11 +28,7 @@ jobs:
         config:
           - { arch: x86_64,       host: x86_64,      libc: glibc, platform: linux/amd64, test: 1 }
           # - { arch: i686,         host: i686,        libc: glibc, platform: linux/386,   test: 1 }
-          # - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
-          # - { arch: armv7l,       host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
           # - { arch: x86_64-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 1 }
-          # - { arch: armv6l-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
-          # - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
           
     container:
       image: ghcr.io/void-linux/void-${{ matrix.config.libc }}-full:20250616R1
@@ -57,29 +53,28 @@ jobs:
       #    restore-keys: |
       #      masterdir-${{ matrix.config.arch }}-
          
-      - name: Prep container
+      - name: 🧰 Prep container
         run: |
           mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
-          # sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           env -u XBPS_TARGET_ARCH xbps-install -Syu xbps
           env -u XBPS_TARGET_ARCH xbps-install -yu
           env -u XBPS_TARGET_ARCH xbps-install -y sudo bash curl grep jq zip unzip git github-cli xtools coreutils
           useradd -G xbuilder -M builder -s $(which bash)
           
-      - name: Checkout void-package
+      - name: 🔎 Checkout void-package
         uses: actions/checkout@v6
         with:
           repository: void-linux/void-packages
           ref: master
           path: void-packages
           
-      - name: Fix sourcepkg.sh — replace awk with shell parameter expansion
+      - name: 🐛 Fix sourcepkg.sh — replace awk with shell parameter expansion
         working-directory: void-packages
         run: |
           sed -i 's@for var in $(awk .*;@for var in $(printenv | cut -d'"'"'='"'"' -f1);@' common/environment/setup/sourcepkg.sh
       #    sed -i 's@_soname=\$(\${OBJDUMP} -p "\$f" | awk '\''/SONAME/{print \$2}'\'')@_soname=\$(\${OBJDUMP} -p "\$f" | grep '\''SONAME'\'' | cut -d '\'' '\'' -f2)@' common/hooks/post-install/98-shlib-provides.sh
-          
-      - name: Merge this repository into void-linux/void-packages
+   
+      - name: 🧩 Merge this repository into void-linux/void-packages
         working-directory: void-packages
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -101,7 +96,7 @@ jobs:
           fi
           rm --force hostdir/binpkgs/*.xbps.sig2
 
-      - name: Identify changes to build
+      - name: 📋 Identify changes to build
         working-directory: void-packages
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -115,7 +110,7 @@ jobs:
           git diff-tree -r --no-renames --name-only --diff-filter=AM ${latest_sha} ${SHA} -- 'srcpkgs/**' \
           | cut -d/ -f 2 | uniq | xargs sudo -Eu builder ./xbps-src sort-dependencies | tee /tmp/templates
 
-      - name: Setup void-packages
+      - name: 🛠️ Setup void-packages
         working-directory: void-packages
         run: |
           chown -R builder:builder .
@@ -127,7 +122,7 @@ jobs:
           echo 'XBPS_DISTDIR=$PWD/hostdir/distfiles' >> etc/conf
           echo 'XBPS_MASTERDIR_PKGS="$PWD/hostdir/binpkgs"' >> etc/conf
 
-      - name: Prepare masterdir
+      - name: 🔧 Prepare masterdir
         working-directory: void-packages
         run: |
           chown -R builder:builder .
@@ -187,20 +182,15 @@ jobs:
           sudo umount "$MASTERDIR/proc" || true
           sudo umount "$MASTERDIR/dev"  || true
           sudo umount "$MASTERDIR/sys"  || true
-     
-      #- name: 🔐 Fix hostdir permissions
-      #  working-directory: void-packages
-      #  run: |
-      #    set -eu
-      #    if [ ! -d "hostdir" ]; then
-      #     echo "⚠️ hostdir не существует — we skip chown"
-      #     exit 0
-      #    fi
-      #    sudo chown -R builder:builder hostdir/
-          
+        
       # -------------------- Packages to build --------------------
 
-      - name: build pkgs
+      - name: 🗑️ Reset package cache & sync repos
+        working-directory: void-packages
+        run: |
+          sudo -Eu builder ./xbps-src clean || true
+          
+      - name: 📦 build pkgs
         working-directory: void-packages
         run: |
           chown -R builder:builder .
@@ -212,7 +202,7 @@ jobs:
 
       # -----------------------------------------------------------
 
-      - name: Clean & sign
+      - name: 🧾 Clean & sign
         working-directory: void-packages/hostdir/binpkgs
         env:
           PRIVKEY: ${{ secrets.PRIV_KEY }}
@@ -225,7 +215,7 @@ jobs:
           sudo -Eu builder rm -f key.pem
           sudo -Eu builder xbps-rindex --clean ${PWD}
 
-      - name: checksum
+      - name: 🔢 checksum
         working-directory: void-packages/hostdir/binpkgs
         run: |
           rm -rf *.sha256sum *.sha512sum
@@ -241,17 +231,17 @@ jobs:
             echo "❌ No packages found to checksum."
           fi
 
-      - name: Upload Artifact
+      - name: 📤 Upload Artifact
         uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.config.arch }}-repodata
           path: void-packages/hostdir/binpkgs
 
-      - name: short sha
+      - name: 🏷️ short sha
         run: |
           printf "SHORT_SHA=$(git rev-parse --short ${SHA})" >> $GITHUB_ENV
 
-      - name: release
+      - name: 🚀 release
         uses: softprops/action-gh-release@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

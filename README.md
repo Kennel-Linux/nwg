@@ -9,7 +9,7 @@
 [![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux&colorA=363a4f&)](#)
 [![x85_64-glibc](https://img.shields.io/badge/x86__64-glibc-478061?style=badge&colorA=363a4f&)](#)
 
-[![Build](https://img.shields.io/github/actions/workflow/status/Kennel-Linux/nwg/build.yml?style=flat-square&label=BUILD&logo=githubactions&logoColor=white&colorA=363a4f&)](https://github.com/Kennel-Linux/nwg/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/Kennel-Linux/nwg/build-awk.yml?style=flat-square&label=BUILD&logo=githubactions&logoColor=white&colorA=363a4f&)](https://github.com/Kennel-Linux/nwg/actions)
 [![Updates](https://img.shields.io/github/actions/workflow/status/Kennel-Linux/nwg/update.yml?style=flat-square&label=AUTO-UPDATE&logo=github&logoColor=white&colorA=363a4f&)](https://github.com/Kennel-Linux/nwg/actions)
 
 [![GitHub](https://img.shields.io/github/license/Kennel-Linux/nwg?style=flat-square&label=License&colorA=363a4f&colorB=purple&logo=gitbook)](#)

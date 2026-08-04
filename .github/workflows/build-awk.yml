@@ -1,4 +1,4 @@
-name: 🏗️ Build Void Linux Packages
+name: 🏗️ Build Release Nwg
 
 env:
   TAG: workflow-${{ github.run_number }}

@@ -179,6 +179,7 @@ jobs:
         env:
           ARCH: ${{ matrix.config.arch }}
         run: |
+          chown -R builder:builder .        
           pkgs=$(cat /tmp/templates)
           for pkg in ${pkgs}; do
             echo "🏗️ Building $pkg for $ARCH..."

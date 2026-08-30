@@ -1,6 +1,6 @@
 # Template file for 'waypaper'
 pkgname=waypaper
-version=2.8
+version=2.9
 revision=1
 build_style=python3-module
 hostmakedepends="python3-setuptools"
@@ -12,4 +12,4 @@ maintainer="Sofiya <sofiya@v.org>"
 license="GPL-3.0-only"
 homepage="https://github.com/anufrievroman/waypaper"
 distfiles="https://github.com/anufrievroman/waypaper/archive/refs/tags/${version}.tar.gz"
-checksum=6d9abe1fd95a1170d4bad643ff04d9e6bf7e53fda7b2df904d93fa1509426849
+checksum=372c40c82546ec7d57efc0346552d307a5b548de2bac21547da8b148385bfad7

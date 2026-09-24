@@ -84,6 +84,10 @@ sudo xbps-query -Rs nwg
 - [x] Build and package nwg once a new version is released via GitHub Actions
 - 
 
+### Disclaimer
+
+This is an unofficial repository and is not affiliated with the Void Linux project.
+
 <details>
 <summary><b>repo-key</b></summary>
 <br/>

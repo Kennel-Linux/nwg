@@ -31,7 +31,7 @@
 >>> _type in the terminal_
 
 ```shell
-printf "repository=https://github.com/Kennel-Linux/nwg/releases/latest/download/" | sudo tee /etc/xbps.d/nwg-repository.conf
+printf "repository=https://github.com/Kennel-Linux/nwg/releases/latest/download" | sudo tee /etc/xbps.d/nwg-repository.conf
 ```
 
 > [!IMPORTANT]

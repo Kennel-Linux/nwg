@@ -33,6 +33,7 @@ depends="
 	python3-psutil
 	python3-requests
 	upower
+	swaybg
 	wlr-randr
 "
 short_desc="GTK based panel for sway and Hyprland Wayland compositors"

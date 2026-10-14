@@ -1,6 +1,6 @@
 # Template file for 'nwg-look'
 pkgname=nwg-look
-version=1.2.0
+version=1.2.1
 revision=1
 build_style=go
 go_import_path=github.com/nwg-piotr/nwg-look
@@ -13,7 +13,7 @@ license="MIT"
 homepage="https://github.com/nwg-piotr/nwg-look"
 changelog="https://github.com/nwg-piotr/nwg-look/releases"
 distfiles="https://github.com/nwg-piotr/nwg-look/archive/refs/tags/v${version}.tar.gz"
-checksum=76c522473fbb07718a867ac12b9d752465003512b33760566391f8c7ce71438a
+checksum=1c66053f559f1756b18b615987a450433117c6b6c08759debdef94b6fd906480
 
 post_install() {
 	vinstall stuff/main.glade 644 /usr/share/nwg-look

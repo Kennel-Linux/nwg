@@ -30,6 +30,12 @@
 >>  _How to use_
 >>> _type in the terminal_
 
+### Make sure xbps.d directory exists:
+
+```
+sudo mkdir -p /etc/xbps.d
+```
+
 ```shell
 printf "repository=https://github.com/Kennel-Linux/nwg/releases/latest/download" | sudo tee /etc/xbps.d/nwg-repository.conf
 ```

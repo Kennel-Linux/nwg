@@ -1,6 +1,6 @@
 # Template file for 'python3-imageio-ffmpeg'
 pkgname=python3-imageio-ffmpeg
-version=0.8.0
+version=0.8.1
 revision=1
 build_style=python3-pep517
 hostmakedepends="python-setuptools"
@@ -11,4 +11,4 @@ maintainer="Sofiya <sofiya@v.org>"
 license="BSD-2-Clause"
 homepage="https://github.com/imageio/imageio-ffmpeg"
 distfiles="https://github.com/imageio/imageio-ffmpeg/archive/refs/tags/v${version}.tar.gz"
-checksum=cf18c25f4346220b985ba37c5d5ec57f0b42f01243872d0f8ae5307052440be9
+checksum=09ea6c038cd4eab618f38b67c83bad5be941ac6474d0fab824ebf8c79b12674f

@@ -1,6 +1,6 @@
 # Template file for 'nwg-drawer'
 pkgname=nwg-drawer
-version=0.7.5
+version=0.7.6
 revision=1
 build_style=go
 go_import_path=github.com/nwg-piotr/nwg-drawer
@@ -13,7 +13,7 @@ license="MIT"
 homepage="https://nwg-piotr.github.io/nwg-shell/nwg-drawer"
 #changelog=""
 distfiles="https://github.com/nwg-piotr/nwg-drawer/archive/refs/tags/v${version}.tar.gz"
-checksum=af6bfbee17ab4dec300545c83c89a25e09b5f63e7ce06fa8627e0a04cf11d6e8
+checksum=5fad5051bfea0bf786bbbd799d75d9cb76214572990dc23d6dcff7cb2e5f59ab
 
 post_install() {
 	vinstall drawer.css 644 usr/share/nwg-drawer

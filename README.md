@@ -36,8 +36,10 @@
 sudo mkdir -p /etc/xbps.d
 ```
 
-```shell
-printf "repository=https://github.com/Kennel-Linux/nwg/releases/latest/download" | sudo tee /etc/xbps.d/nwg-repository.conf
+```bash
+printf '%s\n' \
+  'repository=https://github.com/Kennel-Linux/nwg/releases/latest/download' \
+  | sudo tee /etc/xbps.d/nwg-repository.conf
 ```
 
 > [!IMPORTANT]
